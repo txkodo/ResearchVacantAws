@@ -1,0 +1,18 @@
+{
+  "singleQuote": true,
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "importOrder": [
+    "^(vue/(.*)$)|^(vue$)",
+    "^(vue-router/(.*)$)|^(vue-router$)",
+    "^(vue-i18n/(.*)$)|^(vue-i18n$)",
+    "^(quasar/(.*)$)|^(quasar$)",
+    "<THIRD_PARTY_MODULES>",
+    "^(backend/*(.*))$",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true
+}
