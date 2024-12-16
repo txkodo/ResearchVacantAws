@@ -1,14 +1,31 @@
-# Welcome to your CDK TypeScript project
+# 環境構築
 
-This is a blank project for CDK development with TypeScript.
+`volta`, `aws cli` を入れておく
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+リポジトリを clone
 
-## Useful commands
+下記を実行
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+```sh
+yarn install
+yarn lefthook install
+```
+
+# コマンド
+
+```sh
+# リント + フォーマットの安全な修正 (よく使う)
+yarn fix
+
+# テストの実行 (よく使う)
+yarn test
+
+# aws環境に反映 (よく使う)
+yarn deploy
+
+# リント + フォーマットのチェック
+yarn lint
+
+# 型やインポートのチェック
+yarn typecheck
+```

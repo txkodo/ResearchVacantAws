@@ -9,25 +9,25 @@
   "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "eslint.codeActionsOnSave.mode": "all",
+  "files.eol": "\n", // biomeのリントルールと合わせ、改行コードをLFとする
   "typescript.tsdk": "node_modules/typescript/lib",
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // biomeはまだvueに完全対応していないのでprettierを採用
   },
   "files.associations": {
     "*.code-snippets": "json",
     ".prettierrc": "jsonc"
-  },
+  }
 }

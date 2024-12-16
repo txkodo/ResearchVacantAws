@@ -1,18 +1,26 @@
 {
   "name": "yotei",
   "version": "0.1.0",
+  "type": "module",
   "bin": {
     "yotei": "bin/yotei.js"
   },
   "scripts": {
-    "deploy": "cdk deploy"
+    "lint": "biome check",
+    "typecheck": "tsc --noEmit",
+    "fix": "biome check --write",
+    "test": "vitest",
+    "deploy": "yarn lint && yarn typecheck && cdk deploy"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.10.2",
     "aws-cdk": "2.173.1",
     "commander": "^12.1.0",
+    "lefthook": "^1.9.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.712.0",

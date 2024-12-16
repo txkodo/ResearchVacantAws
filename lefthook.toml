@@ -1,0 +1,28 @@
+#
+# コミットする前にリントとフォーマットを走らせるための設定ファイル
+#
+# コミットフックには lefthook を使用している
+# 
+# このファイルを書き換えた場合は `yarn lefthook install` を実行し変更を反映させること
+#
+
+output = [
+  "meta", # Print lefthook version
+]
+skip_output = [
+  "meta",           # Skips lefthook version printing
+  "summary",        # Skips summary block (successful and failed steps) printing
+  "empty_summary",  # Skips summary heading when there are no steps to run
+  "success",        # Skips successful steps printing
+  "failure",        # Skips failed steps printing
+  "execution",      # Skips printing any execution logs (but prints if the execution failed)
+  "execution_out",  # Skips printing execution output (but still prints failed commands output)
+  "execution_info", # Skips printing `EXECUTE > ...` logging
+  "skips",          # Skips "skip" printing (i.e. no files matched)
+]
+rc = "./.envrc"
+
+[pre-commit.commands.check]
+# コミット前にこのコマンドを実行し、失敗するとコミットできない
+run = "yarn biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files} & yarn typecheck"
+stage_fixed = true
