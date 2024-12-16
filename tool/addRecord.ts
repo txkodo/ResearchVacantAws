@@ -1,10 +1,6 @@
 import { Command } from 'commander';
 
-const cmd = new Command()
-  .argument('<url>')
-  .requiredOption('-i, --id <ID>')
-  .requiredOption('-t, --text <TEXT>')
-  .showHelpAfterError();
+const cmd = new Command().argument('<url>').requiredOption('-i, --id <ID>').requiredOption('-t, --text <TEXT>').showHelpAfterError();
 
 async function main() {
   cmd.parse();

@@ -1,12 +1,8 @@
+import { DynamoDBClient, GetItemCommand, PutItemCommand } from '@aws-sdk/client-dynamodb';
+import { zValidator } from '@hono/zod-validator';
 import { Hono } from 'hono';
 import { handle } from 'hono/aws-lambda';
-import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
-import {
-  DynamoDBClient,
-  GetItemCommand,
-  PutItemCommand,
-} from '@aws-sdk/client-dynamodb';
 
 const app = new Hono();
 
@@ -18,7 +14,7 @@ app.get(
     'param',
     z.object({
       id: z.string(),
-    })
+    }),
   ),
   async (c) => {
     const { id } = c.req.param();
@@ -27,10 +23,10 @@ app.get(
       new GetItemCommand({
         TableName: TABLE_NAME,
         Key: { id: { S: id } },
-      })
+      }),
     );
     return c.json(res.Item);
-  }
+  },
 );
 
 app.post(
@@ -40,7 +36,7 @@ app.post(
     z.object({
       id: z.string(),
       text: z.string(),
-    })
+    }),
   ),
   async (c) => {
     const { id, text } = await c.req.json();
@@ -53,11 +49,11 @@ app.post(
           id: { S: id },
           text: { S: text },
         },
-      })
+      }),
     );
     console.log(res);
     return c.json({ message: 'success' });
-  }
+  },
 );
 
 export const handler = handle(app);
