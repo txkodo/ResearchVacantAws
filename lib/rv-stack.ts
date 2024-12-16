@@ -24,6 +24,10 @@ export class ResearchVacantStack extends cdk.Stack {
       environment: {
         TABLE_NAME: table.tableName,
       },
+      bundling: {
+        format: lambda_node.OutputFormat.ESM,
+        sourceMap: true,
+      },
     });
 
     table.grantFullAccess(apiLambda);
